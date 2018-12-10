@@ -24,4 +24,21 @@ def read():
   
   return original
   
-  
+#(2) Now, instead of printing the counts for each word, modify the color/size/weight of the word to reflect its frequency in the file.  You will probably want to break the counts into ranges for this 
+#(e.g. words with a count between 30 and 40 have one color/size, etc).    
+
+def sizecolor(count):
+  if count >= 0 and count <= 10:
+       return ('663399', '20')
+   elif count > 10 and count <= 20:
+       return ('FFFF00', '50')
+   elif count > 20 and count <= 30:
+       return ('66CC33', '30')
+   elif count > 30 and count <= 40:
+       return ('00CC00', '80')
+   elif count > 40 and count <= 50:
+       return ('3399FF', '450')
+   else: 
+       return ('CCCCFFF', '40')
+        
+        
