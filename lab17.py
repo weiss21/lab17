@@ -22,10 +22,20 @@ def read():
   original = file.read()
   file.close()
   
-  textfiles = original.lower().replace("-", "").split()
+  textfiles = original.lower().replace("-"," ").split()
   uniqueWordCount = 0
   count = {}
   
+  
+  for word in textfiles:
+   if word in count:
+     count[word] += 1
+   else:
+     count[word] = 1
+   
+  final = sorted(count.iteritems(), key = lambda x: x[1], reverse = True)
+
+  return final
   
 #(2) Now, instead of printing the counts for each word, modify the color/size/weight of the word to reflect its frequency in the file.  You will probably want to break the counts into ranges for this 
 #(e.g. words with a count between 30 and 40 have one color/size, etc).    
