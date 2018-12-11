@@ -55,16 +55,18 @@ def size(count):
        return 30
 
 def color(count):
-  if count >= 0 and count <= 10:
-       return 'CC0033'
+  if count >= 0 and count <= 5:
+       return 'red'
+  if count >=6 and count <=10:
+       return 'blue'
   elif count > 10 and count <= 20:
-       return 'pink'
+       return 'purple'
   elif count > 20 and count <= 30:
-       return  'green'
+       return  'grey'
   elif count > 30 and count <= 40:
-       return 'yellow'
+       return 'green'
   elif count > 40 and count <= 50:
-       return' orange'
+       return 'orange'
   else: 
        return 'blue'
             
@@ -82,8 +84,8 @@ def write(words):
    message = ""
    
    
-   message = message + '<p style="color:orange; font-size:30px; font-weight:bold">' + str(words[0]) + '</p>\n'
-   message = message + '<p style="color:blue; font-size:25px; font-weight:bold">' + str(words[1]) + '</p>\n'
+   #message = message + '<p style="color:orange; font-size:30px; font-weight:bold">' + str(words[0]) + '</p>\n'
+   #message = message + '<p style="color:blue; font-size:25px; font-weight:bold">' + str(words[1]) + '</p>\n'
    
    array = words
    
