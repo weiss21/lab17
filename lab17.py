@@ -89,9 +89,9 @@ def write(words):
    
    #Main message array in this for loop
    for i in range(0,len(array) - 1):
-     wordColor = color(array[i])
-     wordSize = size(array[i])
-     message +=  '<p style="color:'+ str(wordColor) + '; font-size:' + str(wordSize) + 'px; font-weight:bold">' + str(array[i]) + '</p>\n'
+     wordColor = color(array[i][1])
+     wordSize = size(array[i][1])
+     message +=  '<p style=\"color:' + str(wordColor) + '; font-size:' + str(wordSize) + 'px; font-weight:bold">' + str(array[i]) + '</p>\n'
    
    #start writing the new file.
    f = open(fileName, 'w') 
