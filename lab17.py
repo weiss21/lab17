@@ -40,20 +40,34 @@ def read():
 #(2) Now, instead of printing the counts for each word, modify the color/size/weight of the word to reflect its frequency in the file.  You will probably want to break the counts into ranges for this 
 #(e.g. words with a count between 30 and 40 have one color/size, etc).    
 
-def sizeColor(count):
+def size(count):
   if count >= 0 and count <= 10:
-       return ('663399', '20')
+       return 20
   elif count > 10 and count <= 20:
-       return ('FFFF00', '50')
+       return 50
   elif count > 20 and count <= 30:
-       return ('66CC33', '30')
+       return  30
   elif count > 30 and count <= 40:
-       return ('00CC00', '80')
+       return 80
   elif count > 40 and count <= 50:
-       return ('3399FF', '450')
+       return 450
   else: 
-       return ('CCCCFFF', '40')
-        
+       return 40
+
+def color(count):
+  if count >= 0 and count <= 10:
+       return red
+  elif count > 10 and count <= 20:
+       return blue
+  elif count > 20 and count <= 30:
+       return  green
+  elif count > 30 and count <= 40:
+       return yellow
+  elif count > 40 and count <= 50:
+       return orange
+  else: 
+       return pink
+            
 def write(words):
    directory = os.path.dirname(__file__)
    fileName = os.path.join(directory, 'newegg.html')
@@ -64,8 +78,20 @@ def write(words):
    title = '<html>\n<head><title>CST 205: Lab 17 </title>\n</head>'
    bodyOpen = '<body>\n<h1>Frequency of Words</h1>\n'
    bodyClose = '</body>\n</html>'
-   htmlBody = '<p style="color:#%s; font-size:%spx; font-weight:bold">%s</p><br>\n'
-   #message = {}
+   htmlBody = '<p style="color:#%s; font-size:%spx; font-weight:bold">%s</p>\n'
+   message = ""
+   
+   
+   message = message + '<p style="color:orange; font-size:30px; font-weight:bold">' + str(words[0]) + '</p>\n'
+   message = message + '<p style="color:blue; font-size:25px; font-weight:bold">' + str(words[1]) + '</p>\n'
+   
+   array = words
+   
+   #Main message array in this for loop
+   for i in range(0,len(array) - 1):
+     wordColor = color(array[i])
+     wordSize = size(array[i])
+     message +=  '<p style="color:'+ str(wordColor) + '; font-size:' + str(wordSize) + 'px; font-weight:bold">' + str(array[i]) + '</p>\n'
    
    #start writing the new file.
    f = open(fileName, 'w') 
@@ -75,9 +101,10 @@ def write(words):
    f.write(bodyOpen)
    f.write('The words are: <br>')
    
-   for i in words:
-     color, size = sizeColor(words[i])
-     f.write(str(htmlBody % (color,size,i)))
+   
+   #message = message + '<p style="color:FF3300; font-size:20px; font-weight:bold">' + str(words[0]) + '</p>\n'
+   #message = message + '<p style="color:FF3300; font-size:40px; font-weight:bold">' + str(words[1]) + '</p>\n'
+   f.write(message)
    #f.write()
    #f.write(str(words[0]))
    #f.write("Hello")
