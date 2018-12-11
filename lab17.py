@@ -8,7 +8,6 @@
 #You will probably want to break the counts into ranges for this (e.g. words with a count between 30 and 40 have one color/size, etc).  
 #Here is a screen shot showing part of one potential outcome (be creative, this is by no means *the* answer, hopefully every group will have a different product for this lab)
 
-import urllib
 import os
 
 
@@ -34,8 +33,9 @@ def read():
      count[word] = 1
    
   final = sorted(count.iteritems(), key = lambda x: x[1], reverse = True)
-
-  return final
+  
+  #HTML document here
+  write(final)
   
 #(2) Now, instead of printing the counts for each word, modify the color/size/weight of the word to reflect its frequency in the file.  You will probably want to break the counts into ranges for this 
 #(e.g. words with a count between 30 and 40 have one color/size, etc).    
@@ -54,4 +54,31 @@ def sizecolor(count):
   else: 
        return ('CCCCFFF', '40')
         
-        
+def write(words):
+   directory = os.path.dirname(__file__)
+   fileName = os.path.join(directory, 'newegg.html')
+   
+   #setup the HTMLfile
+   header = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transition//EN"\
+     "http://www.w3.org/TR/html4/loose.dtd">'
+   title = '<html>\n<head><title> Green Eggs and Ham </title>\n</head>'
+   bodyOpen = '<body>\n<h1>Word Frequency</h1>\n'
+   bodyClose = '</body>\n</html>'
+   htmlBody = '<p style="color:#%s; font-size:%spx; font-weight:bold">%s</p><br>\n'
+
+   
+   #start writing the new file.
+   f = open(fileName, 'w') 
+  
+   f.write(header)
+   f.write(title)
+   f.write(bodyOpen)
+   f.write('Green Eggs and Ham Words:<br>')
+   
+   f.write(str(words[0]))
+   f.write("Hello")
+   f.write(bodyClose)
+   f.close()
+  
+if __name__ == '__read__':
+  read()     
