@@ -44,21 +44,21 @@ def size(count):
   if count >= 0 and count <= 10:
        return 20
   elif count > 10 and count <= 20:
-       return 50
+       return 8
   elif count > 20 and count <= 30:
        return  30
   elif count > 30 and count <= 40:
-       return 80
+       return 35
   elif count > 40 and count <= 50:
-       return 450
+       return 27
   else: 
-       return 40
+       return 30
 
 def color(count):
   if count >= 0 and count <= 10:
        return red
   elif count > 10 and count <= 20:
-       return blue
+       return pink
   elif count > 20 and count <= 30:
        return  green
   elif count > 30 and count <= 40:
@@ -66,7 +66,7 @@ def color(count):
   elif count > 40 and count <= 50:
        return orange
   else: 
-       return pink
+       return blue
             
 def write(words):
    directory = os.path.dirname(__file__)
