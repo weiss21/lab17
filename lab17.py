@@ -40,7 +40,7 @@ def read():
 #(2) Now, instead of printing the counts for each word, modify the color/size/weight of the word to reflect its frequency in the file.  You will probably want to break the counts into ranges for this 
 #(e.g. words with a count between 30 and 40 have one color/size, etc).    
 
-def sizecolor(count):
+def sizeColor(count):
   if count >= 0 and count <= 10:
        return ('663399', '20')
   elif count > 10 and count <= 20:
@@ -61,11 +61,11 @@ def write(words):
    #setup the HTMLfile
    header = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transition//EN"\
      "http://www.w3.org/TR/html4/loose.dtd">'
-   title = '<html>\n<head><title> Green Eggs and Ham </title>\n</head>'
-   bodyOpen = '<body>\n<h1>Word Frequency</h1>\n'
+   title = '<html>\n<head><title>CST 205: Lab 17 </title>\n</head>'
+   bodyOpen = '<body>\n<h1>Frequency of Words</h1>\n'
    bodyClose = '</body>\n</html>'
    htmlBody = '<p style="color:#%s; font-size:%spx; font-weight:bold">%s</p><br>\n'
-
+   #message = {}
    
    #start writing the new file.
    f = open(fileName, 'w') 
@@ -73,10 +73,14 @@ def write(words):
    f.write(header)
    f.write(title)
    f.write(bodyOpen)
-   f.write('Green Eggs and Ham Words:<br>')
+   f.write('The words are: <br>')
    
-   f.write(str(words[0]))
-   f.write("Hello")
+   for i in words:
+     color, size = sizeColor(words[i])
+     f.write(str(htmlBody % (color,size,i)))
+   #f.write()
+   #f.write(str(words[0]))
+   #f.write("Hello")
    f.write(bodyClose)
    f.close()
   
