@@ -56,17 +56,17 @@ def size(count):
 
 def color(count):
   if count >= 0 and count <= 10:
-       return red
+       return 'CC0033'
   elif count > 10 and count <= 20:
-       return pink
+       return 'pink'
   elif count > 20 and count <= 30:
-       return  green
+       return  'green'
   elif count > 30 and count <= 40:
-       return yellow
+       return 'yellow'
   elif count > 40 and count <= 50:
-       return orange
+       return' orange'
   else: 
-       return blue
+       return 'blue'
             
 def write(words):
    directory = os.path.dirname(__file__)
